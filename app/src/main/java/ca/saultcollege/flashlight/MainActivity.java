@@ -28,9 +28,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* 1
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST);
+        1 */
 
+        /* 2
         hasCameraFlash = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+        2 */
 
         btnFlashLight = findViewById(R.id.btnFlashLightToggle);
         btnBlinkFlashLight = findViewById(R.id.btnBlinkFlashLight);
@@ -38,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         btnFlashLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // change "text" to change the pop up message
+                Toast.makeText(MainActivity.this, "You clicked the flashlight button", Toast.LENGTH_SHORT).show();
+
+                /* 3
                 if (hasCameraFlash) {
                     if (btnFlashLight.getText().toString().contains("ON")) {
                         btnFlashLight.setText(R.string.turn_light_off);
@@ -49,21 +57,30 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(MainActivity.this, "No flash available on your device", Toast.LENGTH_SHORT).show();
                 }
+                3 */
             }
         });
 
         btnBlinkFlashLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // change "text" to change the pop up message
+                Toast.makeText(MainActivity.this, "You clicked the blink button", Toast.LENGTH_SHORT).show();
+
+                /* 4
                 if(btnFlashLight.getText().toString().contains("OFF")) {
                     blinkFlash();
                 } else{
                     Toast.makeText(MainActivity.this, "Turn on the flashlight first.", Toast.LENGTH_SHORT).show();
                 }
-
+                4 */
             }
         });
     }
+
+
+    // You do not have to change anything below this line
+
 
     private void flashLightOn() {
         CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
